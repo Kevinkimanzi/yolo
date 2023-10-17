@@ -1,0 +1,46 @@
+version: '3'  
+
+services:
+  client:
+    restart: always
+    container_name: clientyolo
+    build: 
+     context: ./client
+     dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    networks:
+      - myapp-network  
+
+  api:
+    restart: always
+    container_name: apiyolo
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile  
+    ports:
+      - 5000:5000
+    networks:
+      - myapp-network
+
+  mongodb:
+    image: mongo 
+    container_name: mongoimage
+    ports:
+      - 27017:27017
+    #environment:
+     # - MONGO_INITDB_ROOT_USERNAME=Kevin Kilonzi
+     # - MONGO_INITDB_ROOT_PASSWORD=Kimanzi1@I6382102   
+    volumes:
+      - app:/data/db
+    networks: 
+      - myapp-network
+
+networks:
+  myapp-network:
+    driver: bridge  
+    
+volumes:
+  app: 
