@@ -1,0 +1,9 @@
+---
+# tasks file for gitclone
+- name: Example clone of a single branch
+  ansible.builtin.git:
+    repo: https://github.com/Kevinkimanzi/yolo
+    dest: "{{ remote_yolo_path }}"
+    single_branch: yes
+    version: master
+    

@@ -1,0 +1,6 @@
+
+# tasks file for composeup
+- name: Tear down existing services
+  docker_compose:
+    project_src: "{{ remote_yolo_path }}"
+    state: absent
