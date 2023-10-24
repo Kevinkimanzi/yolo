@@ -56,3 +56,43 @@ I tagged my images with my Docker Hub username and the desired repository name
 
 Push the Docker Image
 link: kevinkimanzi4/backend   and kevinkimanzi4/client
+
+# IP3 
+
+# Vagrant and Ansible Project
+
+A brief introduction to your Vagrant and Ansible project. Describe the purpose of the project and what it does.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [set up Vagrant](#getting-started)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+- [start the Vagrant environment](#project-structure)
+- [initiate the play](#contributing)
+
+## Prerequisites
+Install Prerequisites:
+I Ensured I have the necessary tools installed on my host machine:
+
+Vagrant
+
+VirtualBox 
+
+Ansible
+
+## Set Up Vagrant:
+I Created a Vagrantfile that defines the VM needed for my microservices.
+
+### Configuration
+
+Explain the configuration options and files used in your project. Include details about environment variables, configuration files, or Ansible variables.
+
+
+# Command to start the Vagrant environment
+Run vagrant up to create and provision your VMs.
+
+# Command to initiate the play
+vagrant provision
+
