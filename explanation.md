@@ -66,11 +66,11 @@ A brief introduction to your Vagrant and Ansible project. Describe the purpose o
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
-- [set up Vagrant](#getting-started)
+- [set up Vagrant](#Set Up Vagrant:)
   - [Configuration](#configuration)
   - [Usage](#usage)
-- [start the Vagrant environment](#project-structure)
-- [initiate the play](#contributing)
+- [start the Vagrant environment](#Command to start the Vagrant environment)
+- [initiate the play](#Command to initiate the play)
 
 ## Prerequisites
 Install Prerequisites:
