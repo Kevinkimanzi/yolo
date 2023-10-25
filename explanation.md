@@ -41,8 +41,6 @@ pushing: I pushed my local branch and its associated commits to a remote reposit
 docker-compose up was used to start the services
 
 
-
-
 # Image tagging
 I tagged my built image from yolo_client:latest to yolo_client:v1.0.0.1   and yolo_backend:latest to yolo_backend:v1.0.0.2
 
@@ -61,16 +59,7 @@ link: kevinkimanzi4/backend   and kevinkimanzi4/client
 
 # Vagrant and Ansible Project
 
-A brief introduction to your Vagrant and Ansible project. Describe the purpose of the project and what it does.
-
-## Table of Contents
-
-- [Prerequisites](#prerequisites)
-- [set up Vagrant](#Set Up Vagrant:)
-  - [Configuration](#configuration)
-  - [Usage](#usage)
-- [start the Vagrant environment](#Command to start the Vagrant environment)
-- [initiate the play](#Command to initiate the play)
+The project uses vagrant virtual machine with the latest ubuntu server to deploy microservices application.
 
 ## Prerequisites
 Install Prerequisites:
@@ -82,12 +71,20 @@ VirtualBox
 
 Ansible
 
+
 ## Set Up Vagrant:
 I Created a Vagrantfile that defines the VM needed for my microservices.
 
-### Configuration
+playbook.yml - YAML that defines a series of tasks and order in which they should be executed.
 
-Explain the configuration options and files used in your project. Include details about environment variables, configuration files, or Ansible variables.
+roles - roles are a way to organize and structure your automation code and tasks in a reusable and modular manner. Roles help break down your automation into smaller, more manageable components, making it easier to develop, maintain, and share your Ansible playbooks
+
+hosts- It is the inventory.. it contain list of servers.
+
+# Command to initiate roles
+ To initiate an Ansible role, you can use the ansible-galaxy command, which is the standard tool for managing Ansible roles and collections
+ command:
+ ansible-galaxy init role_name
 
 
 # Command to start the Vagrant environment
