@@ -8,5 +8,5 @@ spec:
   resources:
     requests:
       storage: 10Gi
-  storageClassName: standard  # Optional, specify a storage class name
-  volumeName: mongo-pv  # Specify the name of the associated PersistentVolume
+  storageClassName: standard  
+  volumeName: mongo-pv  
