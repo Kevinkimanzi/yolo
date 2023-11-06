@@ -93,3 +93,13 @@ Run vagrant up to create and provision your VMs.
 # Command to initiate the play
 vagrant provision
 
+
+# IP 4 Orchestration
+Kubernetes is an open-source system for automating deployment, scaling and management of containerized application.
+
+For our database we will use StatefulSet .A stateful app is a program that saves client data from the activities of one session for use in the next session.All databases, such as MySQL, Oracle, and PostgreSQL, are examples of stateful applications therefore our database (Mongo) will use a stateful set and I will attach persistent volume claim and persistent volume because I need a storage that doesn't depend on the pod lifecycle.
+
+For our backend and client we will use deployment to orchestrate our application.stateless applications don’t “store” data
+
+
+Once you have a pod running, you can create a deployment to manage the life cycle of the pod. A deployment ensures that the desired number of replicas of the pod are running at all times and provides features like rolling updates and rollbacks
