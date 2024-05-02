@@ -92,7 +92,7 @@ resource "aws_security_group" "websg" {
 
 resource "aws_instance" "web" {
   ami           = "ami-0fc5d935ebf8bc3bc"
-  instance_type = "t2.large"
+  instance_type = "t2.micro"
   key_name   = "yoloapp"
   vpc_security_group_ids = [aws_security_group.websg.id]
   subnet_id = aws_subnet.subnet1.id
@@ -100,10 +100,6 @@ resource "aws_instance" "web" {
 
   tags = {
     Name = "web"
-  }
-
-  root_block_device {
-    volume_size = 30
   }
 }
 
