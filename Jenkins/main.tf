@@ -60,36 +60,28 @@ resource "aws_route_table_association" "association1" {
 resource "aws_security_group" "websg" {
   name        = "websg"
   vpc_id      = aws_vpc.myvpc.id
+  description = "Open 22,443,80,8080,9000"
 
-  ingress {
-    description      = "HTTPS from VPC"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description      = "HTTP from VPC"
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description      = "SSH"
-    from_port        = 22
-    to_port          = 22
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
+  # Define a single ingress rule to allow traffic on all specified ports
+  ingress = [
+    for port in [22, 80, 443, 8080, 9000, 3000] : {
+      description      = "TLS from VPC"
+      from_port        = port
+      to_port          = port
+      protocol         = "tcp"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = []
+      prefix_list_ids  = []
+      security_groups  = []
+      self             = false
+    }
+  ]
 
   egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   tags = {
@@ -101,6 +93,7 @@ resource "aws_security_group" "websg" {
 resource "aws_instance" "web" {
   ami           = "ami-0fc5d935ebf8bc3bc"
   instance_type = "t2.micro"
+  key_name   = "yoloapp"
   vpc_security_group_ids = [aws_security_group.websg.id]
   subnet_id = aws_subnet.subnet1.id
   user_data = base64encode(file("instalation.sh"))
